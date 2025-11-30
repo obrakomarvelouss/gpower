@@ -48,31 +48,48 @@ export default function Navigation({ currentPage, onNavigate, cartCount }: Navig
           </div>
 
           <div className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              <button
-                key={link.id}
-                onClick={() => onNavigate(link.id)}
-                className={`text-sm font-medium transition-colors duration-200 ${
-                  currentPage === link.id
-                    ? 'text-green-600'
-                    : 'text-gray-700 hover:text-green-600'
-                }`}
-              >
-                {link.label}
-              </button>
-            ))}
-            <button
-              onClick={() => onNavigate('cart')}
-              className="relative p-2 text-gray-700 hover:text-green-600 transition-colors duration-200"
-            >
-              <ShoppingCart className="w-5 h-5" />
-              {cartCount > 0 && (
-                <span className="absolute -top-1 -right-1 bg-green-600 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
-                  {cartCount}
-                </span>
-              )}
-            </button>
-          </div>
+  {navLinks.map((link) => (
+    <button
+      key={link.id}
+      onClick={() => onNavigate(link.id)}
+      className={`text-sm font-medium transition-colors duration-200 ${
+        currentPage === link.id
+          ? 'text-green-600'
+          : 'text-gray-700 hover:text-green-600'
+      }`}
+    >
+      {link.label}
+    </button>
+  ))}
+
+  {/* 🔹 LOGIN BUTTON */}
+  <button
+    onClick={() => onNavigate('login')}
+    className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+  >
+    Login
+  </button>
+
+  {/* 🔹 REQUEST BUTTON */}
+  <button
+    onClick={() => onNavigate('request')}
+    className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700"
+  >
+    Make a Request
+  </button>
+
+  <button
+    onClick={() => onNavigate('cart')}
+    className="relative p-2 text-gray-700 hover:text-green-600 transition-colors duration-200"
+  >
+    <ShoppingCart className="w-5 h-5" />
+    {cartCount > 0 && (
+      <span className="absolute -top-1 -right-1 bg-green-600 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+        {cartCount}
+      </span>
+    )}
+  </button>
+</div>
 
           <div className="md:hidden flex items-center space-x-4">
             <button
