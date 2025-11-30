@@ -7,6 +7,8 @@ import ProductsPage from './pages/ProductsPage';
 import ProductDetailPage from './pages/ProductDetailPage';
 import CartPage from './pages/CartPage';
 import ContactPage from './pages/ContactPage';
+import LoginPage from './pages/LoginPage';
+import RequestPage from './pages/RequestPage';
 import { supabase, getSessionId } from './lib/supabase';
 
 function App() {
@@ -57,6 +59,11 @@ function App() {
         return <CartPage onNavigate={handleNavigate} onCartUpdate={loadCartCount} />;
       case 'contact':
         return <ContactPage />;
+        case 'login':
+  return <LoginPage onNavigate={handleNavigate} />;
+
+case 'request':
+  return <RequestPage />;
       default:
         return <HomePage onNavigate={handleNavigate} />;
     }
