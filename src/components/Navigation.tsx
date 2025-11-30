@@ -115,24 +115,46 @@ export default function Navigation({ currentPage, onNavigate, cartCount }: Navig
 
       {isMenuOpen && (
         <div className="md:hidden bg-white border-t border-gray-200">
-          <div className="px-4 py-3 space-y-3">
-            {navLinks.map((link) => (
-              <button
-                key={link.id}
-                onClick={() => {
-                  onNavigate(link.id);
-                  setIsMenuOpen(false);
-                }}
-                className={`block w-full text-left px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
-                  currentPage === link.id
-                    ? 'bg-green-50 text-green-600'
-                    : 'text-gray-700 hover:bg-gray-50'
-                }`}
-              >
-                {link.label}
-              </button>
-            ))}
-          </div>
+       <div className="px-4 py-3 space-y-3">
+  {navLinks.map((link) => (
+    <button
+      key={link.id}
+      onClick={() => {
+        onNavigate(link.id);
+        setIsMenuOpen(false);
+      }}
+      className={`block w-full text-left px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
+        currentPage === link.id
+          ? 'bg-green-50 text-green-600'
+          : 'text-gray-700 hover:bg-gray-50'
+      }`}
+    >
+      {link.label}
+    </button>
+  ))}
+
+  {/* 🔵 LOGIN BUTTON (mobile) */}
+  <button
+    onClick={() => {
+      onNavigate('login');
+      setIsMenuOpen(false);
+    }}
+    className="block w-full text-left px-3 py-2 rounded-md bg-blue-600 text-white font-medium hover:bg-blue-700"
+  >
+    Login
+  </button>
+
+  {/* 🟢 REQUEST BUTTON (mobile) */}
+  <button
+    onClick={() => {
+      onNavigate('request');
+      setIsMenuOpen(false);
+    }}
+    className="block w-full text-left px-3 py-2 rounded-md bg-green-600 text-white font-medium hover:bg-green-700"
+  >
+    Make a Request
+  </button>
+</div>
         </div>
       )}
     </nav>
